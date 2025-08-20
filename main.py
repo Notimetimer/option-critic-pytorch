@@ -65,7 +65,9 @@ def run(args):
     env.seed(args.seed)
 
     buffer = ReplayBuffer(capacity=args.max_history, seed=args.seed)
-    logger = Logger(logdir=args.logdir, run_name=f"{OptionCriticFeatures.__name__}-{args.env}-{args.exp}-{time.ctime()}")
+    # 使用适用于Windows的格式化时间戳
+    timestamp = time.strftime("%Y%m%d-%H%M%S")
+    logger = Logger(logdir=args.logdir, run_name=f"{OptionCriticFeatures.__name__}-{args.env}-{args.exp}-{timestamp}")
 
     steps = 0 ;
     if args.switch_goal: print(f"Current goal {env.goal}")
