@@ -9,6 +9,12 @@ from utils import to_tensor
 
 
 class OptionCriticConv(nn.Module):
+    '''
+    内部策略网络参数：options_W, options_b
+    策略选择网络参数：
+    
+    价值网络参数：features, Q, terminations
+    '''
     def __init__(self,
                 in_features,
                 num_actions,
